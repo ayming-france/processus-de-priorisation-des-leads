@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Priority Process · Ayming France · 2026-05</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://ayming-france.github.io/assets/engine/slides.css">
+  <style>
+    :root {
+      --ay-primary: #11a9e6;
+      --ay-accent: #0da4e8;
+      --ay-dark: #00456d;
+      --ay-success: #0ab38c;
+      --ay-warning: #f59e0b;
+      --ay-danger: #ef4444;
+      --ay-text: #0f172a;
+      --ay-gray: #6b7280;
+      --ay-light: #9ca3af;
+      --ay-bg-subtle: #eef2f6;
+      --ay-bg-light: #f8fafc;
+    }
+
+    .slide-inner.insights { padding: 56px 72px; }
+    .slide-title.compact { margin-bottom: 28px; font-size: 32px; }
+    .slide-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ay-primary);
+      margin-bottom: 8px;
+    }
+    .slide-subtitle {
+      font-size: 18px;
+      color: var(--ay-gray);
+      font-weight: 500;
+      margin: -16px 0 32px 0;
+      line-height: 1.4;
+    }
+
+    /* Mission band */
+    .mission-band {
+      background: linear-gradient(90deg, #ecfeff, #eff6ff);
+      border-left: 6px solid var(--ay-primary);
+      padding: 18px 24px;
+      border-radius: 12px;
+      margin-bottom: 26px;
+    }
+    .mission-band .mission-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--ay-primary);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .mission-band .mission-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ay-dark);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    /* KPI tiles */
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+    .kpi-tile { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px 22px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .kpi-tile .kpi-label { font-size: 12px; font-weight: 600; color: var(--ay-gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .kpi-tile .kpi-value { font-size: 44px; font-weight: 700; color: var(--ay-dark); line-height: 1; margin-bottom: 6px; }
+    .kpi-tile .kpi-sub { font-size: 12px; color: var(--ay-light); margin-top: 14px; }
+
+    /* Footnote */
+    .footnote { font-size: 11px; color: var(--ay-light); margin-top: 16px; font-style: italic; }
+
+    /* 3-pillar layout */
+    .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 16px; }
+    .pillar-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: 24px 26px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); position: relative; overflow: hidden; }
+    .pillar-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--ay-primary); }
+    .pillar-card.act::before { background: var(--ay-success); }
+    .pillar-card.prio::before { background: var(--ay-warning); }
+    .pillar-number { display: inline-flex; width: 36px; height: 36px; border-radius: 50%; background: var(--ay-primary); color: #fff; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; margin-bottom: 14px; }
+    .pillar-card.act .pillar-number { background: var(--ay-success); }
+    .pillar-card.prio .pillar-number { background: var(--ay-warning); }
+    .pillar-card h3 { font-size: 18px; font-weight: 700; color: var(--ay-dark); margin: 0 0 10px 0; }
+    .pillar-card p { font-size: 13px; color: var(--ay-text); line-height: 1.55; margin: 0; }
+
+    /* Diagram embed */
+    .diagram-frame {
+      width: 100%;
+      height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fafbfc;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .diagram-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* Onboarding cadence */
+    .ob-cadence { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 24px; }
+    .ob-step { background: #fff; border: 1px solid #e5e7eb; border-top: 4px solid var(--ay-primary); border-radius: 10px; padding: 16px 14px; }
+    .ob-day { font-size: 11px; font-weight: 700; color: var(--ay-primary); letter-spacing: 0.5px; text-transform: uppercase; }
+    .ob-title { font-size: 14px; font-weight: 700; color: var(--ay-dark); margin: 6px 0 8px 0; }
+    .ob-desc { font-size: 12px; color: var(--ay-text); line-height: 1.45; }
+
+    .ob-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 26px; }
+    .ob-feature { background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%); border-left: 4px solid var(--ay-primary); border-radius: 10px; padding: 16px 20px; }
+    .ob-feature.success { border-left-color: var(--ay-success); }
+    .ob-feature.warning { border-left-color: var(--ay-warning); }
+    .ob-feature h4 { font-size: 14px; font-weight: 700; color: var(--ay-dark); margin: 0 0 6px 0; }
+    .ob-feature p { font-size: 12px; color: var(--ay-text); line-height: 1.45; margin: 0; }
+
+    /* Author credit */
+    .deck-credit { position: fixed; bottom: 18px; left: 26px; font-size: 11px; font-weight: 700; color: var(--ay-gray); letter-spacing: 0.3px; z-index: 90; white-space: nowrap; pointer-events: none; }
+    .cover-credit { margin-top: 20px; font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 0.3px; opacity: 0.9; }
+
+    /* Compact-fit */
+    .compact-fit .slide-inner.insights { padding-top: 18px; padding-bottom: 8px; }
+    .compact-fit .slide-title.compact { margin-bottom: 12px; }
+    .compact-fit .mission-band { padding: 12px 18px; margin-bottom: 16px; }
+    .compact-fit .mission-band .mission-text { font-size: 17px; }
+    .compact-fit .kpi-tile { padding: 14px 18px; }
+
+    /* North Star metric grid */
+    .ns-intro {
+      background: linear-gradient(135deg, #f0f9ff, #f8fafc);
+      border-left: 5px solid var(--ay-primary);
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin-bottom: 26px;
+    }
+    .ns-intro p { margin: 0; font-size: 15px; color: var(--ay-text); line-height: 1.5; }
+    .ns-intro p + p { margin-top: 8px; }
+    .ns-intro b { color: var(--ay-dark); }
+
+    .ns-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 18px;
+    }
+    .ns-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px 22px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      position: relative;
+    }
+    .ns-card.primary { border-top: 5px solid var(--ay-primary); }
+    .ns-card.operating { border-top: 5px solid var(--ay-success); }
+    .ns-card.guardrail { border-top: 5px solid var(--ay-warning); }
+    .ns-card.shared { border-top: 5px solid var(--ay-gray); }
+    .ns-card .ns-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ay-gray);
+      margin-bottom: 6px;
+    }
+    .ns-card.primary .ns-tag { color: var(--ay-primary); }
+    .ns-card.operating .ns-tag { color: var(--ay-success); }
+    .ns-card.guardrail .ns-tag { color: var(--ay-warning); }
+    .ns-card h3 { font-size: 18px; font-weight: 700; color: var(--ay-dark); margin: 0 0 6px 0; }
+    .ns-card p { font-size: 12px; color: var(--ay-text); line-height: 1.5; margin: 0; }
+    .ns-card .brand-logo {
+      height: 38px;
+      width: auto;
+      max-width: 140px;
+      margin: 0 auto 14px;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* Mission slide */
+    .mission-slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 460px;
+      text-align: center;
+      padding: 40px 80px;
+    }
+    .mission-slide .mission-quote,
+    .mission-slide .mission-mechanism {
+      font-size: 30px;
+      font-weight: 500;
+      color: var(--ay-dark);
+      line-height: 1.4;
+      max-width: 980px;
+      margin: 0 0 24px 0;
+    }
+    .mission-slide .mission-quote b,
+    .mission-slide .mission-mechanism b {
+      color: var(--ay-primary);
+      font-weight: 700;
+    }
+    .mission-slide .mission-mechanism { margin-bottom: 36px; }
+    .mission-slide .mission-attribution {
+      font-size: 14px;
+      color: var(--ay-gray);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Chapter Navigation -->
+  <nav class="chapter-nav">
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+
+    <div class="nav-header">
+      <div class="nav-logo">
+        <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+      </div>
+      <span class="nav-subtitle">Lead Priority Process · Mai 2026</span>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Cadrage</div>
+      <div class="nav-item active" data-slide="0"><span class="nav-item-number">01</span>Couverture</div>
+      <div class="nav-item" data-slide="1"><span class="nav-item-number">02</span>North Star · concept</div>
+      <div class="nav-item" data-slide="2"><span class="nav-item-number">03</span>Mauvais candidats</div>
+      <div class="nav-item" data-slide="3"><span class="nav-item-number">04</span>Notre North Star</div>
+      <div class="nav-item" data-slide="4"><span class="nav-item-number">05</span>Mission</div>
+      <div class="nav-item" data-slide="5"><span class="nav-item-number">06</span>Objectif</div>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-title">Proposition</div>
+      <div class="nav-item" data-slide="6"><span class="nav-item-number">07</span>Diagramme</div>
+      <div class="nav-item" data-slide="7"><span class="nav-item-number">08</span>Le défi 2025</div>
+    </div>
+  </nav>
+
+  <!-- Slide Counter -->
+  <div class="slide-counter"><span class="current">1</span>/8</div>
+
+  <main class="presentation">
+
+    <!-- ========== SLIDE 0 : COVER ========== -->
+    <section class="slide cover active" data-chapter="cover">
+      <div class="cover-layout">
+        <div class="cover-left">
+          <div class="cover-logo">
+            <img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming">
+          </div>
+          <h1 class="cover-title">Projet<br>Inbound</h1>
+          <p class="cover-subtitle">Aligner notre marketing sur les Marketing-Sourced SQOs<br>Lead Priority Process · v1</p>
+          <p class="cover-credit">José J Encarnación Saiter | Marketing France · 2026-05</p>
+        </div>
+        <div class="cover-right">
+          <img class="cover-image" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80" alt="Équipe Ayming">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SLIDE 1 : NORTH STAR · CONCEPT ========== -->
+    <section class="slide" data-chapter="cadrage">
+      <div class="slide-inner insights">
+        <div class="slide-eyebrow">Cadrage marketing</div>
+        <h1 class="slide-title compact">Qu'est-ce qu'une North Star metric ?</h1>
+
+        <div class="ns-intro" style="margin-bottom: 32px;">
+          <p>La North Star est <b>l'unique métrique qui capture l'unité de valeur qu'une équipe produit</b>. Elle sert de référence commune pour aligner les décisions, prioriser les efforts et mesurer le progrès. Pour notre marketing France, c'est la métrique qui doit aligner nos <b>3 BL</b> sur ce que nous créons vraiment.</p>
+        </div>
+
+        <h3 style="font-size: 14px; color: var(--ay-dark); margin: 0 0 14px 0; padding-bottom: 6px; border-bottom: 2px solid var(--ay-primary); text-transform: uppercase; letter-spacing: 1.5px;">Trois exemples connus</h3>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+          <div class="ns-card primary">
+            <img class="brand-logo" src="https://cdn.simpleicons.org/uber/000000" alt="Uber">
+            <h3>Trips completed</h3>
+            <p>Pas le revenu, pas le nombre d'inscrits : le déplacement effectivement réalisé. C'est l'unité de valeur qu'Uber crée pour son utilisateur.</p>
+          </div>
+          <div class="ns-card primary">
+            <img class="brand-logo" src="https://cdn.simpleicons.org/airbnb/FF5A5F" alt="Airbnb">
+            <h3>Nuitées réservées</h3>
+            <p>Pas le nombre de visiteurs sur le site : la nuit effectivement réservée. C'est ça qu'Airbnb produit comme valeur.</p>
+          </div>
+          <div class="ns-card primary">
+            <img class="brand-logo" src="https://cdn.simpleicons.org/spotify/1DB954" alt="Spotify">
+            <h3>Temps d'écoute</h3>
+            <p>Pas le nombre d'inscrits, ni le revenu d'abonnement : le temps réellement passé à écouter. Le signal d'engagement avec le contenu.</p>
+          </div>
+        </div>
+
+        <p class="footnote" style="margin-top: 22px; text-align: center;">Le point commun : chacune capture l'unité concrète de valeur, pas l'argent ni l'activité de surface.</p>
+      </div>
+      <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+    </section>
+
+    <!-- ========== SLIDE 2 : MAUVAIS CANDIDATS ========== -->
+    <section class="slide" data-chapter="cadrage">
+      <div class="slide-inner insights">
+        <div class="slide-eyebrow">Cadrage marketing</div>
+        <h1 class="slide-title compact">Pourquoi pas une autre métrique pour le marketing ?</h1>
+        <p class="slide-subtitle">Trois candidats que nous avons écartés, et pourquoi.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+          <div class="ns-card" style="border-top: 5px solid #fca5a5;">
+            <div class="ns-tag" style="color: #b91c1c;">Candidat 1</div>
+            <h3 style="color: #7f1d1d;">Nombre de RDV</h3>
+            <p>Un RDV est une étape, pas une valeur. On peut générer 200 RDV par mois dont 150 ne mènent à rien. Le compteur monte, mais aucune valeur n'est produite. La métrique doit refléter ce qui sort, pas ce qui rentre.</p>
+          </div>
+          <div class="ns-card" style="border-top: 5px solid #fca5a5;">
+            <div class="ns-tag" style="color: #b91c1c;">Candidat 2</div>
+            <h3 style="color: #7f1d1d;">Revenue</h3>
+            <p>C'est un résultat d'entreprise, partagé avec les ventes. Le closing dépend autant des commerciaux que du marketing. On ne peut pas piloter une métrique qu'on ne contrôle qu'à moitié. C'est exactement la raison qui a fait choisir « trips » plutôt que « revenue » chez Uber.</p>
+          </div>
+          <div class="ns-card" style="border-top: 5px solid #fca5a5;">
+            <div class="ns-tag" style="color: #b91c1c;">Candidat 3</div>
+            <h3 style="color: #7f1d1d;">SQLs seuls</h3>
+            <p>Un SQL ne dit rien sur son issue. On a déjà vu des volumes de SQLs progresser sans qu'aucune opportunité ne suive. La métrique mesure une étape intermédiaire, pas la valeur effectivement créée.</p>
+          </div>
+        </div>
+
+        <p class="footnote" style="margin-top: 26px; text-align: center;">Le principe commun : éviter les métriques de volume sans qualité (Candidat 1), hors-contrôle (Candidat 2), ou trop en amont de la valeur (Candidat 3).</p>
+      </div>
+      <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+    </section>
+
+    <!-- ========== SLIDE 2 : PILE DE MÉTRIQUES ========== -->
+    <section class="slide" data-chapter="cadrage">
+      <div class="slide-inner insights">
+        <div class="slide-eyebrow">Cadrage marketing</div>
+        <h1 class="slide-title compact">Notre pile de métriques</h1>
+        <p class="slide-subtitle">Une North Star pour la valeur, une métrique opérationnelle pour piloter, un garde-fou pour la qualité, un outcome partagé avec les ventes.</p>
+
+        <div class="ns-grid">
+          <div class="ns-card primary">
+            <div class="ns-tag">North Star</div>
+            <h3>Marketing-Sourced SQOs</h3>
+            <p>Opportunités créées par sales, originées par un canal marketing. La véritable unité de valeur produite par le marketing.</p>
+          </div>
+          <div class="ns-card operating">
+            <div class="ns-tag">Métrique opérationnelle</div>
+            <h3>SQLs (RDV bookés)</h3>
+            <p>Ce que l'équipe pilote chaque semaine. L'indicateur avancé qu'on optimise au quotidien.</p>
+          </div>
+          <div class="ns-card guardrail">
+            <div class="ns-tag">Garde-fou</div>
+            <h3>Taux SQL → SQO</h3>
+            <p>Contrôle qualité. S'il baisse, on génère les mauvais RDV : volume sans valeur.</p>
+          </div>
+          <div class="ns-card shared">
+            <div class="ns-tag">Outcome partagé</div>
+            <h3>Revenue pipeline marketing-sourced</h3>
+            <p>Le résultat final, partagé avec les ventes. Ne sert pas à piloter le marketing seul.</p>
+          </div>
+        </div>
+
+        <p class="footnote" style="margin-top: 20px; text-align: center;">Logique : nos 3 BL pilotent les RDV chaque semaine, et mesurent le succès en opportunités. Inspiration Uber : les équipes opérationnelles pilotent l'input avancé, la métrique de référence mesure l'unité de valeur produite.</p>
+      </div>
+      <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+    </section>
+
+    <!-- ========== SLIDE 3 : MISSION ========== -->
+    <section class="slide" data-chapter="cadrage">
+      <div class="slide-inner insights" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100%; padding-top: 0; padding-bottom: 0;">
+        <div class="slide-eyebrow" style="margin-bottom: 24px;">Mission du projet</div>
+        <p class="mission-quote" style="text-align: center; font-size: 30px; font-weight: 500; color: var(--ay-dark); line-height: 1.4; max-width: 980px; margin: 0;">Augmenter notre nombre de <b style="color: var(--ay-primary); font-weight: 700;">Marketing-Sourced SQOs</b>, grâce à un processus qui <b style="color: var(--ay-primary); font-weight: 700;">priorise mieux le traitement des leads</b> et <b style="color: var(--ay-primary); font-weight: 700;">multiplie les points de conversion en RDV</b> dans le parcours utilisateur.</p>
+      </div>
+      <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+    </section>
+
+    <!-- ========== SLIDE 4 : OBJECTIF (3 piliers) ========== -->
+    <section class="slide" data-chapter="vision">
+      <div class="slide-inner insights">
+        <div class="slide-eyebrow">Objectif du projet</div>
+        <h1 class="slide-title compact">Convertir, activer, prioriser</h1>
+
+        <div class="pillar-grid">
+          <div class="pillar-card">
+            <div class="pillar-number">1</div>
+            <h3>Demande de rendez-vous</h3>
+            <p>Inviter le prospect à demander un rendez-vous à chaque point de contact (formulaire, téléchargement, webinaire, simulateur), pas seulement sur le formulaire de contact.</p>
+          </div>
+          <div class="pillar-card act">
+            <div class="pillar-number">2</div>
+            <h3>Activation</h3>
+            <p>Mettre en place des parcours d'onboarding qui maintiennent le prospect en relation après une conversion et lui donnent plusieurs occasions de lever la main.</p>
+          </div>
+          <div class="pillar-card prio">
+            <div class="pillar-number">3</div>
+            <h3>Priorité</h3>
+            <p>Traiter d'abord ceux qui demandent (P1), puis les comptes ciblés par les commerciaux (P2), puis les profils ICP (P3). Fini les listes traitées au hasard.</p>
+          </div>
+        </div>
+      </div>
+      <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+    </section>
+
+    <!-- ========== SLIDE 5 : DIAGRAMME ========== -->
+    <section class="slide" data-chapter="proposition">
+      <div class="slide-inner insights">
+        <div class="slide-eyebrow">La proposition · Parcours du prospect</div>
+        <h1 class="slide-title compact">Lead Priority Process · v1</h1>
+
+        <div class="diagram-frame">
+          <img src="assets/diagram-v1.svg" alt="Schéma du Lead Priority Process v1">
+        </div>
+      </div>
+      <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+    </section>
+
+    <!-- ========== SLIDE 6 : LE DÉFI 2025 ========== -->
+    <section class="slide" data-chapter="constat">
+      <div class="slide-inner insights">
+        <div class="slide-eyebrow">Le défi 2025 · Sur notre meilleur canal</div>
+        <h1 class="slide-title compact">Pousser plus de demandes ne suffira pas</h1>
+        <p class="slide-subtitle">Même sur le formulaire de contact (notre canal le mieux outillé), près d'une demande qualifiée sur deux reste sans RDV. Le projet doit aussi traiter ce qui arrive, pas seulement en produire plus.</p>
+
+        <div class="kpi-grid">
+          <div class="kpi-tile">
+            <div class="kpi-label">Demandes qualifiées</div>
+            <div class="kpi-value">344</div>
+            <div class="kpi-sub">Out of Target déjà exclus</div>
+          </div>
+          <div class="kpi-tile">
+            <div class="kpi-label">Taux de RDV</div>
+            <div class="kpi-value">56,7 %</div>
+            <div class="kpi-sub">195 RDV sur 344</div>
+          </div>
+          <div class="kpi-tile">
+            <div class="kpi-label">Jamais contactés</div>
+            <div class="kpi-value">28 %</div>
+            <div class="kpi-sub">Aucune trace dans Salesforce</div>
+          </div>
+          <div class="kpi-tile">
+            <div class="kpi-label">Délai médian de traitement</div>
+            <div class="kpi-value">4 j</div>
+            <div class="kpi-sub">Seulement 17 % traités sous 24 h</div>
+          </div>
+        </div>
+
+        <p class="footnote" style="margin-top: 40px; text-align: center;">Base : campagnes FR 2025 REQ Lead Entrant. 387 soumissions de formulaire de contact, 43 marquées Out of Target exclues. Source : Salesforce.</p>
+      </div>
+      <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
+    </section>
+
+  </main>
+
+  <!-- Keyboard Hint -->
+  <div class="keyboard-hint">
+    <span><span class="key" id="key-prev">←</span><span class="key" id="key-next">→</span> Naviguer</span>
+    <span><span class="key" id="key-fullscreen">F</span> Plein écran</span>
+  </div>
+
+  <!-- Author credit -->
+  <div class="deck-credit">José J Encarnación Saiter | Marketing France · 2026-05</div>
+
+  <script src="https://ayming-france.github.io/assets/engine/slides.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
+  <script>
+    (function () {
+      var cover = document.querySelector('.slide.cover');
+      var credit = document.querySelector('.deck-credit');
+      if (!cover || !credit) return;
+      var sync = function () {
+        credit.style.visibility = cover.classList.contains('active') ? 'hidden' : 'visible';
+      };
+      sync();
+      new MutationObserver(sync).observe(cover, { attributes: true, attributeFilter: ['class'] });
+    })();
+  </script>
+
+</body>
+</html>
