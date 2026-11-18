@@ -709,13 +709,14 @@
     .projets { height: 345px; }
     .pyr-top { height: 124px; padding-top: 26px; }
     .pyr-base { height: 96px; }
-    /* Trois étages à pente continue : OKR, North Star, OMTM */
+    /* Trois étages à pente continue jusqu'à la pointe : OKR, North Star, OMTM */
     .pyr-col { width: 760px; }
-    .pyr-okr { width: 427px; height: 96px; padding-top: 22px; color: #fff; background: linear-gradient(135deg, #00456d, #0b6fa4); clip-path: polygon(16.9% 0, 83.1% 0, 100% 100%, 0 100%); }
-    .pyr-okr .pyr-tag { font-size: 10px; letter-spacing: 1.2px; opacity: .85; }
-    .pyr-okr b { font-size: 17px; }
-    .pyr-top { width: 601px; height: 110px; margin-top: 6px; padding-top: 10px; clip-path: polygon(13.7% 0, 86.3% 0, 100% 100%, 0 100%); }
-    .pyr-base { width: 760px; height: 100px; clip-path: polygon(9.9% 0, 90.1% 0, 100% 100%, 0 100%); }
+    .pyr-okr { width: 300px; height: 166px; justify-content: flex-end; gap: 3px; padding-bottom: 9px; color: #fff; background: linear-gradient(160deg, #0b6fa4, #00456d); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+    .pyr-okr .pyr-tag { font-size: 9px; letter-spacing: .8px; opacity: .85; }
+    .pyr-okr b { font-size: 16px; line-height: 1.2; }
+    .pyr-top { width: 528px; height: 120px; margin-top: 6px; padding-top: 6px; clip-path: polygon(20.55% 0, 79.45% 0, 100% 100%, 0 100%); }
+    .pyr-base { width: 760px; height: 122px; margin-top: 6px; clip-path: polygon(14.53% 0, 85.47% 0, 100% 100%, 0 100%); }
+    .pyr-guard { margin-bottom: 95px; }
     .slide.active .pyr-okr { animation: pyr-rise .5s var(--ease-out, ease-out) .7s both; }
 
     /* Trois projets : les cartes montent, puis Lead Priority Process reste en avant */
@@ -1071,8 +1072,8 @@
         <div class="pyr">
           <div class="pyr-col">
             <div class="pyr-tier pyr-okr">
-              <span class="pyr-tag">OKR du projet Performance Marketing</span>
-              <b>Revenue pipeline marketing-sourced</b>
+              <span class="pyr-tag">OKR Performance Marketing</span>
+              <b>Revenue pipeline<br>marketing-sourced</b>
             </div>
             <div class="pyr-tier pyr-top">
               <span class="pyr-tag"><i data-lucide="star"></i>North Star</span>
