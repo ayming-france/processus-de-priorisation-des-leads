@@ -388,9 +388,6 @@
     .pyr-base { width: 600px; height: 118px; margin-top: 6px; color: var(--blue-dark, #004A76); background: linear-gradient(135deg, rgba(0,174,239,.14), rgba(0,176,139,.14)); clip-path: polygon(16.7% 0, 83.3% 0, 100% 100%, 0 100%); }
     .pyr-base .pyr-tag { color: var(--green-dark, #068367); }
     .pyr-base small { color: var(--ay-gray); }
-    .pyr-outcome { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 22px; border: 1.5px dashed #cbd5e1; border-radius: 10px; color: var(--ay-gray); text-align: center; }
-    .pyr-outcome b { font-size: 16px; color: var(--ay-text); }
-    .pyr-link { width: 0; height: 22px; border-left: 1.5px dashed #cbd5e1; }
     .pyr-guard { position: relative; width: 230px; margin-left: -100px; margin-bottom: 70px; padding: 14px 16px 14px 18px; border-left: 3px solid var(--ay-warning); background: #fffbeb; border-radius: 0 8px 8px 0; text-align: left; display: flex; flex-direction: column; gap: 4px; }
     .pyr-guard::before { content: ""; position: absolute; right: 100%; top: 50%; width: 28px; border-top: 1.5px dashed var(--ay-warning); }
     .pyr-guard .pyr-tag { color: #b45309; }
@@ -400,7 +397,6 @@
     @keyframes pyr-fade { from { opacity: 0; } }
     .slide.active .pyr-base { animation: pyr-rise .5s var(--ease-out, ease-out) .1s both; }
     .slide.active .pyr-top { animation: pyr-rise .5s var(--ease-out, ease-out) .4s both; }
-    .slide.active .pyr-link, .slide.active .pyr-outcome { animation: pyr-fade .5s ease .9s both; }
     .slide.active .pyr-guard { animation: pyr-fade .5s ease 1.2s both; }
     @media (prefers-reduced-motion: reduce) { .slide.active .pyr * , .slide.active .pyr-guard { animation: none !important; } }
 
@@ -713,8 +709,14 @@
     .projets { height: 345px; }
     .pyr-top { height: 124px; padding-top: 26px; }
     .pyr-base { height: 96px; }
-    .pyr-link { height: 12px; }
-    .pyr-outcome { padding: 7px 20px; }
+    /* Trois étages à pente continue : OKR, North Star, OMTM */
+    .pyr-col { width: 760px; }
+    .pyr-okr { width: 427px; height: 96px; padding-top: 22px; color: #fff; background: linear-gradient(135deg, #00456d, #0b6fa4); clip-path: polygon(16.9% 0, 83.1% 0, 100% 100%, 0 100%); }
+    .pyr-okr .pyr-tag { font-size: 10px; letter-spacing: 1.2px; opacity: .85; }
+    .pyr-okr b { font-size: 17px; }
+    .pyr-top { width: 601px; height: 110px; margin-top: 6px; padding-top: 10px; clip-path: polygon(13.7% 0, 86.3% 0, 100% 100%, 0 100%); }
+    .pyr-base { width: 760px; height: 100px; clip-path: polygon(9.9% 0, 90.1% 0, 100% 100%, 0 100%); }
+    .slide.active .pyr-okr { animation: pyr-rise .5s var(--ease-out, ease-out) .7s both; }
 
     /* Trois projets : les cartes montent, puis Lead Priority Process reste en avant */
     .projet { transition: flex-grow .35s ease, filter .35s ease; }
@@ -1068,11 +1070,10 @@
 
         <div class="pyr">
           <div class="pyr-col">
-            <div class="pyr-outcome">
+            <div class="pyr-tier pyr-okr">
               <span class="pyr-tag">OKR du projet Performance Marketing</span>
               <b>Revenue pipeline marketing-sourced</b>
             </div>
-            <div class="pyr-link" aria-hidden="true"></div>
             <div class="pyr-tier pyr-top">
               <span class="pyr-tag"><i data-lucide="star"></i>North Star</span>
               <b>Marketing-Sourced SQOs</b>
