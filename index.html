@@ -606,6 +606,32 @@
     .stage .wp { zoom: .88; }
     .stage .dispatch { zoom: .95; }
 
+    /* Étape 3 : le PDF à gauche, le chantier par BL à droite */
+    .wp-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; width: 100%; }
+    .wp-split .wp { margin: 0; justify-self: end; width: 520px; }
+    .blw { text-align: left; max-width: 480px; }
+    .blw-head { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ay-gray); margin-bottom: 4px; }
+    .blw-total { font-size: 15px; color: var(--ay-text); margin-bottom: 18px; }
+    .blw-total b { color: var(--ay-dark); font-size: 22px; }
+    .blw-cols { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; height: 330px; padding: 0 12px; }
+    .blw-col { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+    .blw-pct { font-size: 26px; font-weight: 800; color: var(--ay-primary); line-height: 1; }
+    .blw-of { font-size: 12px; color: var(--ay-gray); margin: 4px 0 8px; }
+    .blw-track { position: relative; width: 100%; border-radius: 14px 14px 0 0; background: #d6eefa; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+    .blw-fill { display: flex; flex-direction: column-reverse; transform-origin: bottom; }
+    .blw-seg { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 700; border-top: 2px solid #fff; }
+    .blw-seg.page { background: var(--ay-primary); border-top: 0; }
+    .blw-seg.btn { background: var(--ay-success); }
+    .blw-seg.redir { background: var(--ay-dark); }
+    .blw-bl { margin-top: 10px; font-size: 14px; font-weight: 700; color: var(--ay-dark); text-align: center; white-space: nowrap; }
+    .blw-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin-top: 16px; font-size: 12px; color: var(--ay-gray); }
+    .blw-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+    .slide.active .blw-fill { animation: blw-grow 1.1s cubic-bezier(.2,.7,.2,1) .3s both; }
+    .slide.active .blw-col:nth-child(2) .blw-fill { animation-delay: .45s; }
+    .slide.active .blw-col:nth-child(3) .blw-fill { animation-delay: .6s; }
+    @keyframes blw-grow { from { transform: scaleY(0); } }
+    @media (prefers-reduced-motion: reduce) { .slide.active .blw-fill { animation: none; } }
+
     /* ===== Bonus : account-based marketing ===== */
     .slide-eyebrow .bonus-ic { width: 14px; height: 14px; vertical-align: -2px; margin-right: 4px; }
     .abm-switch { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0 auto 10px; font-size: 14px; font-weight: 700; }
@@ -1271,6 +1297,7 @@
       <div class="slide-inner insights stage">
         <div class="slide-eyebrow">Étape 3 · Encart sur le contenu</div>
         <h1 class="slide-title compact">Le livre blanc porte un encart de prise de rendez-vous</h1>
+        <div class="wp-split">
         <div class="wp">
           <div class="wp-bar"><i data-lucide="file-text"></i>Livre blanc.pdf<span class="wp-pg">3 / 4</span></div>
           <div class="wp-view">
@@ -1283,6 +1310,32 @@
               <div class="wp-page"><div class="l w60 big"></div><div class="l"></div><div class="l"></div><div class="l w50"></div><div class="wp-fig"></div><div class="l w80"></div></div>
             </div>
           </div>
+        </div>
+        <div class="blw">
+          <div class="blw-head">Le chantier, BL par BL</div>
+          <div class="blw-total"><b>101</b> guides renvoient désormais vers la page contact de leur BL</div>
+          <div class="blw-cols">
+            <div class="blw-col">
+              <div class="blw-pct">90 %</div>
+              <div class="blw-of">36 guides sur 40</div>
+              <div class="blw-track" style="height:244px"><div class="blw-fill"><div class="blw-seg page" style="height:152px">25</div><div class="blw-seg btn" style="height:61px">10</div><div class="blw-seg redir" style="height:6px"></div></div></div>
+              <div class="blw-bl">Innovation</div>
+            </div>
+            <div class="blw-col">
+              <div class="blw-pct">100 %</div>
+              <div class="blw-of">41 guides sur 41</div>
+              <div class="blw-track" style="height:250px"><div class="blw-fill"><div class="blw-seg page" style="height:195px">32</div><div class="blw-seg btn" style="height:6px"></div><div class="blw-seg redir" style="height:49px">8</div></div></div>
+              <div class="blw-bl">RH</div>
+            </div>
+            <div class="blw-col">
+              <div class="blw-pct">100 %</div>
+              <div class="blw-of">24 guides sur 24</div>
+              <div class="blw-track" style="height:146px"><div class="blw-fill"><div class="blw-seg page" style="height:134px">22</div><div class="blw-seg btn" style="height:12px"></div></div></div>
+              <div class="blw-bl">Finance &amp; Taxes</div>
+            </div>
+          </div>
+          <div class="blw-legend"><span><i style="background:var(--ay-primary)"></i>Page contact ajoutée</span><span><i style="background:var(--ay-success)"></i>Bouton contact ajouté</span><span><i style="background:var(--ay-dark)"></i>Lien existant redirigé vers la BL</span></div>
+        </div>
         </div>
       </div>
       <div class="company-logo"><img src="https://raw.githubusercontent.com/ayming-france/assets/main/logos/ayming-logo.png" alt="Ayming"></div>
